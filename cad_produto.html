@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produtos - Vibrante</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body { background-color: #f7f7f7; }
+        .container { max-width: 600px; background: #ffffff; border-radius: 10px; padding: 30px; border: 3px solid #3498db; }
+        h2 { color: #3498db; }
+        .form-control { border: 1px solid #3498db; border-radius: 5px; }
+        .btn-primary { background-color: #3498db; border-color: #3498db; width: 100%; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Cadastro de Produto</h2>
+        <form id="productForm">
+            <div class="form-group">
+                <label for="productName">Nome do Produto</label>
+                <input type="text" class="form-control" id="productName" placeholder="Insira o nome do produto" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Descrição</label>
+                <textarea class="form-control" id="description" rows="3" placeholder="Descrição do produto"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantidade</label>
+                <input type="number" class="form-control" id="quantity" placeholder="Quantidade disponível" required>
+            </div>
+            <div class="form-group">
+                <label for="price">Preço</label>
+                <input type="number" class="form-control" id="price" placeholder="Preço do produto" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="category">Categoria</label>
+                <select class="form-control" id="category" required>
+                    <option value="" disabled selected>Selecione uma categoria</option>
+                    <option>Eletrônicos</option>
+                    <option>Roupas</option>
+                    <option>Alimentos</option>
+                    <option>Outros</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="supplier">Fornecedor</label>
+                <input type="text" class="form-control" id="supplier" placeholder="Nome do fornecedor" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Cadastrar Produto</button>
+        </form>
+    </div>
+
+    <script>
+        // Função para gerar um código único de 5 dígitos
+        function gerarCodigoUnico() {
+            return Math.floor(10000 + Math.random() * 90000); // Gera um número entre 10000 e 99999
+        }
+
+        document.getElementById("productForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Evita o envio do formulário padrão
+
+            const codigoProduto = gerarCodigoUnico(); // Gera o código único
+            const nomeProduto = document.getElementById("productName").value;
+
+            // Exibe uma mensagem de confirmação
+            alert(`Produto "${nomeProduto}" cadastrado com sucesso! Código do produto: ${codigoProduto}`);
+
+            // Aqui você pode adicionar o código para salvar o produto, por exemplo, em um banco de dados
+        });
+    </script>
+</body>
+</html>

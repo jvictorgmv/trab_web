@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualização de Produtos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body { background-color: #f7f7f7; }
+        .container { max-width: 800px; margin-top: 30px; }
+        h2 { color: #3498db; }
+        .table { border: 1px solid #ddd; }
+        .table thead th { background-color: #3498db; color: white; }
+        .table tbody tr:hover { background-color: #f1f1f1; }
+        .search-bar { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Lista de Produtos Cadastrados</h2>
+        <input type="text" id="searchBar" class="form-control search-bar" placeholder="Pesquisar produto por nome">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Quantidade</th>
+                    <th>Preço (R$)</th>
+                    <th>Categoria</th>
+                    <th>Fornecedor</th>
+                </tr>
+            </thead>
+            <tbody id="productTableBody">
+                <!-- Os produtos cadastrados serão inseridos aqui via JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const produtos = [
+            { codigo: 12345, nome: "Produto A", descricao: "Descrição A", quantidade: 10, preco: 50.00, categoria: "Eletrônicos", fornecedor: "Fornecedor A" },
+            { codigo: 67890, nome: "Produto B", descricao: "Descrição B", quantidade: 5, preco: 75.00, categoria: "Roupas", fornecedor: "Fornecedor B" },
+            { codigo: 11223, nome: "Produto C", descricao: "Descrição C", quantidade: 15, preco: 25.00, categoria: "Alimentos", fornecedor: "Fornecedor C" }
+        ];
+
+        function carregarProdutos(produtosFiltrados = produtos) {
+            const tableBody = document.getElementById("productTableBody");
+            tableBody.innerHTML = "";
+
+            produtosFiltrados.forEach(produto => {
+                const row = `
+                    <tr>
+                        <td>${produto.codigo}</td>
+                        <td>${produto.nome}</td>
+                        <td>${produto.descricao}</td>
+                        <td>${produto.quantidade}</td>
+                        <td>R$ ${produto.preco.toFixed(2)}</td>
+                        <td>${produto.categoria}</td>
+                        <td>${produto.fornecedor}</td>
+                    </tr>
+                `;
+                tableBody.innerHTML += row;
+            });
+        }
+
+        // Filtro de pesquisa
+        document.getElementById("searchBar").addEventListener("input", function() {
+            const query = this.value.toLowerCase();
+            const produtosFiltrados = produtos.filter(produto =>
+                produto.nome.toLowerCase().includes(query)
+            );
+            carregarProdutos(produtosFiltrados);
+        });
+
+        // Carrega a lista completa ao abrir a página
+        document.addEventListener("DOMContentLoaded", () => carregarProdutos());
+    </script>
+</body>
+</html>

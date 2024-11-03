@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - StockFlow</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Definindo um azul específico para o fundo da navbar */
+        .navbar-custom {
+            background-color: #1E90FF; /* Cor azul específica (DodgerBlue) */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar com cor personalizada -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <a class="navbar-brand" href="#">StockFlow</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Cadastro de Produtos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Visualizar Produtos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Gerenciar Usuários</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sair</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Dashboard de Inventário</h2>
+
+        <div class="row">
+            <!-- Card de Resumo -->
+            <div class="col-md-4">
+                <div class="card text-white bg-primary mb-3">
+                    <div class="card-header">Total de Produtos</div>
+                    <div class="card-body">
+                        <h5 class="card-title">150 Produtos</h5>
+                        <p class="card-text">Visão geral do total de produtos cadastrados no sistema.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card text-white bg-success mb-3">
+                    <div class="card-header">Produtos em Estoque</div>
+                    <div class="card-body">
+                        <h5 class="card-title">120 Produtos</h5>
+                        <p class="card-text">Total de produtos disponíveis em estoque.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card text-white bg-danger mb-3">
+                    <div class="card-header">Estoque Baixo</div>
+                    <div class="card-body">
+                        <h5 class="card-title">30 Produtos</h5>
+                        <p class="card-text">Produtos que precisam de reposição imediata.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção de Ações Rápidas -->
+        <div class="row">
+            <div class="col-md-4">
+                <a href="#" class="btn btn-outline-primary btn-block">Cadastrar Novo Produto</a>
+            </div>
+            <div class="col-md-4">
+                <a href="#" class="btn btn-outline-success btn-block">Visualizar Todos os Produtos</a>
+            </div>
+            <div class="col-md-4">
+                <a href="#" class="btn btn-outline-warning btn-block">Gerenciar Usuários</a>
+            </div>
+        </div>
+
+        <!-- Painel de Alertas de Estoque Baixo -->
+        <div class="mt-5">
+            <h4>Alertas de Estoque Baixo</h4>
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Nome do Produto</th>
+                        <th>Categoria</th>
+                        <th>Quantidade</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Produto A</td>
+                        <td>Eletrônicos</td>
+                        <td>3</td>
+                        <td><a href="#" class="btn btn-sm btn-primary">Atualizar Estoque</a></td>
+                    </tr>
+                    <tr>
+                        <td>Produto B</td>
+                        <td>Roupas</td>
+                        <td>1</td>
+                        <td><a href="#" class="btn btn-sm btn-primary">Atualizar Estoque</a></td>
+                    </tr>
+                    <tr>
+                        <td>Produto C</td>
+                        <td>Alimentos</td>
+                        <td>5</td>
+                        <td><a href="#" class="btn btn-sm btn-primary">Atualizar Estoque</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
